@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&display=swap" rel="stylesheet">
+    <style>
+        .container {
+            width: 80%;
+            border: 1px solid lightsteelblue;
+            margin: 0 auto;
+            height: 90vh;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 3px 3px rgb(115, 125, 138);
+            background-image: url("pngtree-sleek-white-hexagonal-design-structure-as-a-background-perfect-for-websites-image_3828942.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .buttons {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-left: 35px;
+            margin-top: 22px;
+        }
+
+        .heading {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            font-family: cursive;
+            color: white;
+            background: black;
+        }
+
+        .textarea {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: baseline;
+            padding-left: 29px;
+        }
+
+        .textarea input {
+            width: 52%;
+            border: 2px solid rgb(115, 125, 138);
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            font-size: 20px;
+            font-family: "Mozilla Headline", sans-serif;
+        }
+
+        .buttons {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .buttons button {
+            padding: 8px;
+            border: 1px dotted black;
+            border-radius: 10px;
+            background-image: linear-gradient(lightblue, transparent);
+            cursor: pointer;
+        }
+
+        h2 {
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 200;
+        }
+
+        .inputBox {
+            display: flex;
+            gap: 10px;
+        }
+
+        .h2Box {
+
+            display: flex;
+            gap: 265px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">
+            <h1>Web Tools</h1>
+
+        </div>
+        <div class="textarea">
+            <div class="h2Box">
+                <h2>Input👇</h2>
+                <h2>Output👇</h2>
+            </div>
+            <div class="inputBox">
+                <input type="text" id="inputBox" oninput="show()" value="">
+                <input type="text" id="outputBox" value="">
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="bold" onclick="boldTxt()"><b>BOLD</b></button>
+            <button class="italic" onclick="italicTxt()"><i>ITALIC</i></button>
+            <button class="upper" onclick="uppercase()">UPPERCASE</button>
+            <button class="lowr" onclick="lowercase()">lowercase</button>
+            <div class="choosClr">
+                <button class="chng-txt" onclick="chngTxt()">
+                    <input type="color" id="colour">CHANGE TEXT COLOR
+                </button>
+            </div>
+            <button onclick="CapitalizeChar()">Capitalize Each Word</button>
+        </div>
+    </div>
+    <script>
+
+        const textareaEle = document.querySelector(".textarea");
+        let ele = document.createElement("p");
+        ele.setAttribute("class", "para");
+        ele.innerText = textareaEle.textContent;
+
+        let getInput = document.querySelector("#inputBox");
+        let getOutput = document.querySelector("#outputBox");
+        function show() {
+            getOutput.value = getInput.value
+        }
+        function boldTxt() {
+            if (getOutput.style.fontWeight == "bold") {
+
+                getOutput.style.fontWeight = "100"
+            } else {
+                getOutput.style.fontWeight = "bold"
+            }
+        }
+        function italicTxt() {
+            getOutput.style.fontStyle = "italic"
+        }
+        function uppercase() {
+            if (getOutput.value != getOutput.value.toUpperCase()) {
+                getOutput.value = getOutput.value.toUpperCase();
+
+            } else {
+                getOutput.value = getOutput.value.toLowerCase();
+
+            }
+        }
+        function lowercase() {
+            if (getOutput.value != getOutput.value.toLowerCase()) {
+                getOutput.value = getOutput.value.toLowerCase();
+
+            } else {
+                getOutput.value = getOutput.value.toUpperCase();
+            }
+        }
+        function chngTxt() {
+
+            let colour = document.getElementById("colour");
+            if (getOutput.style.color != colour.value) {
+                getOutput.style.color = colour.value
+            } else {
+                getOutput.style.color = "black";
+            }
+
+        }
+        function CapitalizeChar() {
+            if (getOutput.style.textTransform != "capitalize") {
+                getOutput.style.textTransform = "capitalize";
+            } else {
+                getOutput.style.textTransform = "unset";
+            }
+        }
+    </script>
+</body>
+
+</html>
